@@ -323,14 +323,16 @@ void init(int argc, char **argv) {
 				break;
 			}
 		}
+
+		if (archive_type < 0) {
+			printf("ERROR: Could not detect archive type (use --type?)\n");
+			return;
+		}
+
 		printf("INFO: detected file type: %s\n", TYPE[archive_type]);
-	} else
+	} else {
 		printf("INFO: the specified archive type: %s\n", TYPE[archive_type]);
-	if (finalcmd[0] == '\0') {
-		printf("ERROR: Couldn't detect archive type\n");
-		return;
-	} /*else
-		printf("DEBUG: the unpack command is: '%s'\n", finalcmd);*/
+	}
 	printf("INFO: cracking %s, status file: %s\n", filename, statname);
 	if (loadstatus() == 1) {
 		printf("ERROR: The status file (%s) is corrupted!\n", statname);
