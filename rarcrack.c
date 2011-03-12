@@ -317,7 +317,7 @@ void init(int argc, char **argv) {
 		fscanf(totest,"%s",(char*)&test);
 		pclose(totest);
 		for (i = 0; strcmp(MIME[i],"") != 0; i++) {
-			if (strcmp(MIME[i],test) == 0) {
+			if (strncmp(MIME[i], test, strlen(MIME[i])) == 0) {
 				strcpy(finalcmd,CMD[i]);
 				archive_type = i;
 				break;
