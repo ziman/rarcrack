@@ -42,7 +42,7 @@ char * getfirstpassword() {
 	return (char*) &ret;
 }
 
-inline void savestatus() {
+static inline void savestatus() {
 	xmlNodePtr root = NULL;
 	xmlNodePtr node = NULL;
 	xmlChar* tmp = NULL;
